@@ -2,4 +2,14 @@ version: '3.1'
 services:
   directus:
     image: directus/directus
-  
+    volumes:
+      - "./data/database:/directus/database"
+      - "./data/extensions:/directus/extensions"
+      - "./data/uploads:/directus/uploads"
+    ports:
+      - "8055:8055"
+    environment:
+      ADMIN_EMAIL: "admin@example.com"
+      ADMIN_PASSWORD: "d1r3ctu5"
+      KEY: a
+      SECRET: b
